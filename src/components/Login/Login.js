@@ -41,7 +41,6 @@ const Login = (props) => {
   const { isValid: passwordValid } = passwordState;
   // Use carefully, there is an optimization ahead
   useEffect(() => {
-    console.log("1;");
     const identifier = setTimeout(() => {
       setFormIsValid(emailValid && passwordValid);
     }, 500);
