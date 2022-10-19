@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer, useState } from "react";
-
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
+import AuthContext from "../../context/AuthContext";
 import classes from "./Login.module.css";
 
 const emailReducer = (state, action) => {
@@ -37,6 +37,8 @@ const Login = (props) => {
     isValid: null,
   });
 
+  const ctx = useContext(AuthContext);
+
   const { isValid: emailValid } = emailState;
   const { isValid: passwordValid } = passwordState;
   // Use carefully, there is an optimization ahead
@@ -69,7 +71,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    ctx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
