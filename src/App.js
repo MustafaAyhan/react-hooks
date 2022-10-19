@@ -31,6 +31,7 @@ function App() {
     <AuthContext.Provider
       value={{
         isLoggedIn,
+        logoutHandler,
       }}
     >
       <MainHeader onLogout={logoutHandler} />
